@@ -54,3 +54,28 @@ def fmax(list):
             maxIndex = i
     return x[maxIndex - 1]
 print('o ponto de inflexao se encontra no volume: ', fmax(y1))
+
+#to calcul acid concentration
+molMassAcid = 60.052
+densityAcid = 1.05
+volOfAcid = 3 + 40
+cOfAcid = (0.1 * fmax(y1)) / volOfAcid #cAcid * volAcid = cNaOH * vNaOH
+c = (cOfAcid * molMassAcid) * volOfAcid / 3 #cocentration in mass / L
+print(c, "g por litro. a amostra apresenta ", c/10, "%")
+
+#second derivative
+y2 = []
+x2 = []
+for i in range(len(x1)):
+    if(i != 0) :
+        dery = y1[i] - y1[i-1]
+        dert = x1[i] - x1[i-1]
+        dydt = dery/dert
+        x2.append(x1[i] + x1[i-1] / 2)
+    else :
+        dydt = y1[1] - y1[0] / x1[1] - x1[0]
+        x2.append(x1[1] + x1[0] / 2)
+    y2.append(dydt)
+plt.plot(x2, y2)
+plt.show()
+
