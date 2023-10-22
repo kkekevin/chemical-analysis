@@ -39,10 +39,10 @@ for i in range(len(x)):
         dery = y[i] - y[i-1]
         dert = x[i] - x[i-1]
         dydt = dery/dert
-        x1.append(x[i] + x[i-1] / 2)
+        x1.append((x[i] + x[i-1]) / 2)
     else :
         dydt = y[1] - y[0] / x[1] - x[0]
-        x1.append(x[1] + x[0] / 2)
+        x1.append((x[1] + x[0]) / 2)
     y1.append(dydt)
 plt.plot(x1, y1)
 plt.show()
@@ -71,10 +71,10 @@ for i in range(len(x1)):
         dery = y1[i] - y1[i-1]
         dert = x1[i] - x1[i-1]
         dydt = dery/dert
-        x2.append(x1[i] + x1[i-1] / 2)
+        x2.append((x1[i] + x1[i-1]) / 2)
     else :
         dydt = y1[1] - y1[0] / x1[1] - x1[0]
-        x2.append(x1[1] + x1[0] / 2)
+        x2.append((x1[1] + x1[0]) / 2)
     y2.append(dydt)
 plt.plot(x2, y2)
 plt.show()
